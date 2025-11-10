@@ -1,0 +1,111 @@
+.main-header{
+  position: sticky; top: 0; z-index: 100;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 28px;         /* more balanced than 50px */
+  background:#fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* Logo */
+.logo-link{ display:flex; align-items:center; gap:6px; text-decoration:none; }
+.logo-k{ width:34px; height:auto; }
+.logo-text{ font-family:"Sansita",sans-serif; color:#000; font-weight:700; line-height:1; }
+
+.main-header ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.main-header a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.header-buttons a{
+  margin-left: 15px;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* FIX: typo background */
+.btn-link {
+  background: transparent;
+  color: #333;
+}
+
+/* FIX: arah gradient top-left -> bottom-right = 135deg */
+.btn-start {
+  background: linear-gradient(135deg, #6675F7, #57007B);
+  color: #fff;
+}
+
+.nav-search{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:36px; height:36px; border-radius:50%;
+  margin-right:10px; text-decoration:none; background:#F6F7FB;
+  transition: transform .08s ease, background .15s ease;
+}
+
+/* Centered nav */
+.primary-nav{ justify-self: center; }
+.primary-nav ul{
+  display:flex; gap:28px; align-items:center;
+  list-style:none; margin:0; padding:0;
+}
+.primary-nav a{ color:#333; text-decoration:none; font-weight:500; }
+.primary-nav a:hover{ color:#111; }
+
+/* Right actions (keep class for your main.js) */
+.header-buttons{
+  display:flex; align-items:center; gap:12px;
+}
+
+/* Search icon button — tidy, centered, not hugging the edge */
+.icon-btn{
+  display:grid; place-items:center;
+  width:36px; height:36px;
+  border-radius:999px;
+  border:1px solid #E5E7EB;
+  background:#fff;
+  color:#111;
+  text-decoration:none;
+  transition: box-shadow .15s ease, transform .05s ease;
+}
+.icon-btn:hover{ box-shadow:0 4px 14px rgba(0,0,0,.08); }
+.icon-btn:active{ transform: translateY(1px); }
+
+/* Existing buttons */
+.btn-link{ color:#333; text-decoration:none; font-weight:600; padding:6px 10px; border-radius:6px; }
+.btn-start{
+  background: linear-gradient(35deg,#6675F7,#57007B);
+  color:#fff; border:0; border-radius:8px; padding:8px 16px; cursor:pointer; font-weight:700;
+}
+
+/* Make nav behave on smaller screens */
+@media (max-width: 900px){
+  .primary-nav ul{ gap:18px; }
+}
+@media (max-width: 760px){
+  .primary-nav{ justify-self:start; }
+  .primary-nav ul{
+    overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none;
+  }
+  .primary-nav ul::-webkit-scrollbar{ display:none; }
+  .btn-link{ display:none; }      /* hide text login on small screens; avatar swap still works */
+}

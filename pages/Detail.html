@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Detail Karya — Kreasiku</title>
+
+  <link rel="stylesheet" href="../css/global.css"/>
+  <link rel="stylesheet" href="../css/detail.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Sansita:wght@700&display=swap" rel="stylesheet">
+
+  <script>window.__PATH_PREFIX__='../';</script>
+  <script defer src="../js/main.js"></script>
+  <script defer src="../js/api.js"></script>
+  <script defer src="../js/detail.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="detail-wrap">
+    <section class="owner-bar" id="ownerBar">
+      <!-- filled by detail.js -->
+    </section>
+
+    <section class="media-wrap" id="mediaWrap">
+      <!-- image grid OR figma embed goes here -->
+    </section>
+
+    <section class="desc-wrap">
+      <p id="descText"></p>
+    </section>
+
+    <section class="actions-wrap">
+      <button id="btnLike" class="pill">❤ <span id="likeCount">0</span></button>
+      <button id="btnSave" class="pill">⭐ <span id="saveCount">0</span></button>
+      <a id="btnOpenLink" class="pill link-btn" href="#" target="_blank" rel="noopener" hidden>Buka Link</a>
+      <a id="btnDownload" class="pill dl-btn" href="#" download hidden>Download</a>
+    </section>
+
+    <section class="comments">
+      <h3>Komentar</h3>
+      <form id="commentForm" class="comment-form" autocomplete="off">
+        <input id="commentInput" class="comment-input" type="text" placeholder="Tulis komentar..."/>
+        <button class="comment-send" type="submit">Kirim</button>
+      </form>
+      <ul id="commentList" class="comment-list"></ul>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+</body>
+</html>

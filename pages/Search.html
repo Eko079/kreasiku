@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pencarian — Kreasiku</title>
+
+  <link rel="stylesheet" href="../css/global.css"/>
+  <link rel="stylesheet" href="../css/gallery.css"/><!-- reuse card visuals -->
+  <link rel="stylesheet" href="../css/search.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Sansita:wght@700&display=swap" rel="stylesheet">
+
+  <script>window.__PATH_PREFIX__='../';</script>
+  <script defer src="../js/main.js"></script>
+  <script defer src="../js/api.js"></script>
+  <script defer src="../js/search.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="search-wrap">
+    <section class="search-hero">
+      <h1 class="search-title">Cari template yang anda inginkan</h1>
+
+      <div class="search-bar" role="search">
+        <input id="q" type="search" placeholder="Cari semua template.." autocomplete="off" />
+        <button id="btnSearch" aria-label="Cari">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="7" stroke="#2b2b2b" stroke-width="1.8"/>
+            <path d="M20 20l-3.2-3.2" stroke="#2b2b2b" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <section class="result-controls">
+      <div class="filters">
+        <div class="filter">
+          <label for="sortSel">Urutkan</label>
+          <select id="sortSel">
+            <option value="relevant">Paling relevan</option>
+            <option value="newest">Terbaru</option>
+            <option value="oldest">Terlama</option>
+            <option value="likes">Terbanyak disukai</option>
+            <option value="stars">Paling banyak disimpan</option>
+          </select>
+        </div>
+
+        <div class="filter">
+          <label for="catSel">Kategori</label>
+          <select id="catSel">
+            <option value="">Semua</option>
+            <option value="portofolio">Portofolio</option>
+            <option value="website">Website</option>
+            <option value="cv">CV</option>
+            <option value="desain">Desain</option>
+            <option value="logo">Logo</option>
+          </select>
+        </div>
+
+        <div class="filter">
+          <label for="dlSel">Unduhan</label>
+          <select id="dlSel">
+            <option value="">Semua</option>
+            <option value="allowed">Bisa diunduh</option>
+            <option value="blocked">Tidak bisa diunduh</option>
+          </select>
+        </div>
+      </div>
+      <div class="meta" id="resultMeta"></div>
+    </section>
+
+    <section class="results">
+      <div class="cards" id="resultGrid"></div>
+      <div id="emptyState" class="empty" hidden>
+        Tidak ada hasil untuk pencarian ini.
+        <a class="empty-cta" href="./Upload.html">Unggah sekarang</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+</body>
+</html>

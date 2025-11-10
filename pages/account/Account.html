@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Akun — Kreasiku</title>
+
+  <link rel="stylesheet" href="../../css/global.css"/>
+  <link rel="stylesheet" href="../../css/account.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Sansita:wght@700&display=swap" rel="stylesheet">
+
+  <script>window.__PATH_PREFIX__ = "../../";</script>
+  <script defer src="../../js/main.js"></script>
+  <script defer src="../../js/api.js"></script>
+  <script defer src="../../js/account.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="account-wrap">
+    <!-- Sidebar -->
+    <aside class="account-side">
+      <div class="profile-card">
+        <div class="avatar" id="sbAvatar" aria-hidden="true">👤</div>
+        <div class="profile-meta">
+          <div class="name" id="sbName">—</div>
+          <div class="role" id="sbClass">—</div>
+        </div>
+      </div>
+
+        <nav class="side-menu">
+          <a class="side-link active" href="Account.html"><span>Galeri Saya</span></a>
+          <a class="side-link" href="Saved.html"><span>Di Simpan</span></a>
+          <a class="side-link" href="Profile.html"><span>Profil</span></a>
+          <a class="side-link" href="AccountSettings.html"><span>Akun</span></a>
+        </nav>
+
+    </aside>
+
+    <!-- Content -->
+    <section class="account-content">
+      <h1 class="content-title">Galeri Saya</h1>
+      <div class="upload-hint">
+        <a class="upload-link" href="../Upload.html">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 16V4m0 0-4 4m4-4 4 4" stroke="#5F6368" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#5F6368" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <div class="upload-hint">Unggah Karya Baru</div>
+        </a>
+      </div>
+
+      <!-- Gallery grid populated by JS -->
+      <div class="grid" id="myGallery"></div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+</body>
+</html>

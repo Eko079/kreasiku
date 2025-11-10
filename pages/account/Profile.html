@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profil — Kreasiku</title>
+
+  <link rel="stylesheet" href="../../css/global.css"/>
+  <link rel="stylesheet" href="../../css/account.css"/><!-- pakai sidebar & layout akun -->
+  <link rel="stylesheet" href="../../css/profile.css"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Sansita:wght@700&display=swap" rel="stylesheet">
+
+  <script>window.__PATH_PREFIX__ = "../../";</script>
+  <script defer src="../../js/main.js"></script>
+  <script defer src="../../js/api.js"></script>
+  <script defer src="../../js/profile.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="account-wrap">
+    <!-- Sidebar (full-height, sama seperti halaman Akun) -->
+    <aside class="account-side">
+      <div class="profile-card">
+        <div class="avatar" id="sbAvatar" aria-hidden="true">👤</div>
+        <div class="profile-meta">
+          <div class="name" id="sbName">—</div>
+          <div class="role" id="sbClass">—</div>
+        </div>
+      </div>
+
+      <nav class="side-menu">
+        <a class="side-link" href="Account.html"><span>Galery Saya</span></a>
+        <a class="side-link" href="Saved.html"><span>Di Simpan</span></a>
+        <a class="side-link active" href="Profile.html"><span>Profil</span></a>
+        <a class="side-link" href="AccountSettings.html"><span>Akun</span></a>
+      </nav>
+    </aside>
+
+    <!-- Konten -->
+    <section class="account-content">
+      <!-- VIEW MODE (default) -->
+      <section id="profileView" class="pv">
+        <div class="pv-head">
+          <h1 class="content-title">Profil</h1>
+          <button id="btnGoEdit" class="btn-edit">Edit Profil</button>
+        </div>
+
+        <div class="pv-card">
+          <div class="pv-hero">
+            <div class="avatar-lg">
+              <img id="pvPhoto" alt="Foto profil" />
+            </div>
+            <div class="pv-text">
+              <div class="pv-name" id="pvName">—</div>
+              <div class="pv-class" id="pvClass">—</div>
+            </div>
+          </div>
+
+          <dl class="pv-list">
+            <div><dt>Nama</dt><dd id="pvNameFull">—</dd></div>
+            <div><dt>Kelas</dt><dd id="pvClassLine">—</dd></div>
+            <div><dt>Bio</dt><dd id="pvBio">—</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- EDIT MODE (muncul saat klik Edit Profil) -->
+      <form id="profileForm" class="pe" hidden>
+        <h1 class="content-title">Edit Profil <span class="pen" aria-hidden="true">✎</span></h1>
+
+        <div class="pe-hero">
+          <label class="avatar-picker" title="Ubah foto">
+            <input type="file" id="photoInput" accept="image/*" hidden>
+            <div class="avatar-lg"><img id="pePhoto" alt="Foto profil"></div>
+            <span class="change">Ubah foto</span>
+          </label>
+          <div class="pe-display" id="peDisplay">—</div>
+        </div>
+
+        <div class="pe-grid">
+          <div class="field">
+            <label for="firstName">Nama Depan</label>
+            <input id="firstName" type="text" autocomplete="given-name">
+          </div>
+          <div class="field">
+            <label for="lastName">Nama Belakang</label>
+            <input id="lastName" type="text" autocomplete="family-name">
+          </div>
+          <div class="field col-2">
+            <label for="kelas">Kelas</label>
+            <input id="kelas" type="text" placeholder="cth: DKV XI">
+          </div>
+          <div class="field col-2">
+            <label for="bio">Bio (opsional)</label>
+            <input id="bio" type="text" placeholder="Ceritakan singkat tentang kamu">
+          </div>
+        </div>
+
+        <div class="pe-actions">
+          <button type="button" class="btn-cancel" id="btnCancel">Cancel</button>
+          <button type="submit" class="btn-save">Save</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+</body>
+</html>

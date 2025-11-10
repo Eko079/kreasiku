@@ -1,0 +1,49 @@
+.detail-wrap{ max-width:1100px; margin:28px auto 96px; padding:0 16px; }
+
+/* Owner bar */
+.owner-bar{ display:flex; align-items:center; gap:12px; margin:8px 0 18px; }
+.owner-avatar{
+  width:56px; height:56px; border-radius:50%;
+  display:grid; place-items:center; background:#E6E2FF; color:#2b2b2b; font-weight:800;
+  font-size:22px;
+}
+.owner-meta .name{ font-weight:800; color:#2b2b2b; }
+.owner-meta .sub{ font-size:12px; color:#808080; margin-top:2px; }
+
+/* Media */
+.media-wrap{ margin:12px 0 12px; }
+.img-grid{
+  display:grid; grid-template-columns: 2fr 1fr; gap:16px;
+}
+.img-grid .big{ aspect-ratio: 16/10; background:#f0f0f3; border-radius:12px; overflow:hidden; }
+.img-grid .stack{ display:grid; gap:16px; }
+.img-grid .stack .small{ aspect-ratio: 16/7.6; background:#f0f0f3; border-radius:12px; overflow:hidden; }
+.media-wrap img, .media-wrap iframe{ width:100%; height:100%; object-fit:cover; display:block; border:0; border-radius:12px; }
+.media-wrap iframe{ min-height:520px; }
+
+/* Description */
+.desc-wrap p{ color:#2b2b2b; line-height:1.7; }
+
+/* Actions */
+.actions-wrap{ display:flex; gap:10px; align-items:center; margin:10px 0 18px; }
+.pill{
+  border:1px solid #E5E5EA; background:#fff; padding:10px 14px; border-radius:999px; cursor:pointer;
+  font-weight:700; color:#2b2b2b;
+}
+.pill.active{ border-color:#BFDDFB; background:#F5FAFF; }
+.link-btn{ text-decoration:none; display:inline-flex; align-items:center; }
+.dl-btn{ text-decoration:none; display:inline-flex; align-items:center; }
+
+/* Comments */
+.comments h3{ margin:18px 0 8px; }
+.comment-form{ display:flex; gap:8px; }
+.comment-input{ flex:1; border:1px solid #E5E5EA; border-radius:8px; padding:10px 12px; }
+.comment-send{ padding:10px 16px; border-radius:8px; border:0; background:#3F66F6; color:#fff; font-weight:700; }
+.comment-list{ list-style:none; padding:0; margin:12px 0 0; display:grid; gap:10px; }
+.comment-item{ display:flex; gap:10px; }
+.c-ava{
+  width:36px; height:36px; border-radius:50%; background:#EEE8FF; display:grid; place-items:center; font-weight:800;
+}
+.c-bubble{ background:#F7F7FA; padding:10px 12px; border-radius:12px; }
+.c-name{ font-weight:700; font-size:14px; }
+.c-time{ color:#8b8b8b; font-size:12px; margin-left:6px; }

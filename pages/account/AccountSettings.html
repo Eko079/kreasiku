@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Akun — Kreasiku</title>
+
+  <link rel="stylesheet" href="../../css/global.css"/>
+  <link rel="stylesheet" href="../../css/account.css"/>
+  <link rel="stylesheet" href="../../css/settings.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Sansita:wght@700&display=swap" rel="stylesheet">
+
+  <script>window.__PATH_PREFIX__ = "../../";</script>
+  <script defer src="../../js/main.js"></script>
+  <script defer src="../../js/api.js"></script>
+  <script defer src="../../js/account-settings.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="account-wrap">
+    <!-- Sidebar (tetap sama gaya dengan halaman lain) -->
+    <aside class="account-side">
+      <div class="profile-card">
+        <div class="avatar" id="sbAvatar" aria-hidden="true">👤</div>
+        <div class="profile-meta">
+          <div class="name" id="sbName">—</div>
+          <div class="role" id="sbClass">—</div>
+        </div>
+      </div>
+
+      <nav class="side-menu">
+        <a class="side-link" href="Account.html"><span>Galery Saya</span></a>
+        <a class="side-link" href="Saved.html"><span>Di Simpan</span></a>
+        <a class="side-link" href="Profile.html"><span>Profil</span></a>
+        <a class="side-link active" href="AccountSettings.html"><span>Akun</span></a>
+      </nav>
+    </aside>
+
+    <!-- Content -->
+    <section class="account-content">
+      <h1 class="content-title">Akun</h1>
+
+      <div class="acct-head">
+        <div class="acct-avatar" id="ctAvatar">👤</div>
+        <div class="acct-ident">
+          <div class="acct-name" id="ctName">—</div>
+          <div class="acct-class" id="ctClass">—</div>
+        </div>
+      </div>
+
+      <hr class="acct-sep">
+
+      <div class="acct-info">
+        <div><span>UID</span><b id="infoUid">—</b></div>
+        <div><span>Email</span><b id="infoEmail">—</b></div>
+        <div><span>Dibuat</span><b id="infoCreated">—</b></div>
+        <div><span>Total Upload</span><b id="infoUploads">0</b></div>
+        <div><span>Total Disimpan</span><b id="infoSaved">0</b></div>
+      </div>
+
+      <hr class="acct-sep">
+
+      <div class="acct-actions">
+        <h3>Akun</h3>
+        <div class="action-row">
+          <button class="btn-logout" id="btnLogout" type="button">Logout</button>
+          <button class="btn-danger" id="btnDelete" type="button">Hapus Akun</button>
+        </div>
+        <p class="muted-small">Menghapus akun akan menghapus semua karya yang pernah kamu unggah pada perangkat/penyimpanan ini.
+        Saat backend tersedia, proses ini juga akan diterapkan di server.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+</body>
+</html>

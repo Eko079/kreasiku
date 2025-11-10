@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Di Simpan — Kreasiku</title>
+
+  <link rel="stylesheet" href="../../css/global.css"/>
+  <link rel="stylesheet" href="../../css/account.css"/>
+  <link rel="stylesheet" href="../../css/saved.css"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Sansita:wght@700&display=swap" rel="stylesheet">
+
+  <script>window.__PATH_PREFIX__ = "../../";</script>
+  <script defer src="../../js/main.js"></script>
+  <script defer src="../../js/api.js"></script>
+  <script defer src="../../js/saved.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="account-wrap">
+    <!-- Sidebar -->
+    <aside class="account-side">
+      <div class="profile-card">
+        <div class="avatar" id="sbAvatar" aria-hidden="true">👤</div>
+        <div class="profile-meta">
+          <div class="name" id="sbName">—</div>
+          <div class="role" id="sbClass">—</div>
+        </div>
+      </div>
+
+      <nav class="side-menu">
+        <a class="side-link" href="Account.html"><span>Galery Saya</span></a>
+        <a class="side-link active" href="Saved.html"><span>Di Simpan</span></a>
+        <a class="side-link" href="Profile.html"><span>Profil</span></a>
+        <a class="side-link" href="AccountSettings.html"><span>Akun</span></a>
+      </nav>
+    </aside>
+
+    <!-- Content -->
+    <section class="account-content">
+      <h1 class="content-title">Di Simpan</h1>
+
+      <div class="saved-head">
+        <div class="saved-sort">
+          <small>Urutkan berdasarkan</small>
+          <select id="sortSelect" aria-label="Urutkan">
+            <option value="likes">Suka</option>
+            <option value="newest">Terbaru</option>
+            <option value="oldest">Terlama</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="savedGrid" class="saved-grid"></div>
+      <div id="emptyState" class="saved-empty" hidden>
+        Kamu belum menyimpan apa pun.
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+</body>
+</html>

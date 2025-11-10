@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hubungi Kami — Kreasiku</title>
+
+  <!-- Global + page styles -->
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/contact.css" />
+
+  <!-- Fonts (Sansita for “reasiku”) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Sansita:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Tell main.js that this page lives in /pages -->
+  <script>window.__PATH_PREFIX__='../';</script>
+  <script defer src="../js/main.js"></script>
+</head>
+<body>
+  
+  <div id="header"></div>
+
+  <main class="contact-wrap">
+    <section class="contact-area" aria-labelledby="contactTitle">
+      <h1 id="contactTitle" class="contact-title">Hubungi Kami</h1>
+
+      <form class="contact-form" action="#" method="post" novalidate>
+        <label class="sr-only" for="nama">Nama</label>
+        <input id="nama" name="nama" type="text" class="field-input" placeholder="Nama" />
+
+        <label class="sr-only" for="email">Alamat email</label>
+        <input id="email" name="email" type="email" class="field-input" placeholder="Alamat email" />
+
+        <label class="sr-only" for="pesan">Pesan</label>
+        <textarea id="pesan" name="pesan" class="field-textarea" placeholder="Tulis pesan anda di sini"></textarea>
+
+        <button type="submit" class="btn-send">Kirim</button>
+      </form>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Unggah — Kreasiku</title>
+
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/upload.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Sansita:wght@700&display=swap" rel="stylesheet">
+  <script>window.__PATH_PREFIX__='../';</script>
+  <script defer src="../js/main.js"></script>
+  <script defer src="../js/api.js"></script>
+  <script defer src="../js/upload.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="upload-wrap">
+    <!-- DROPZONE (images only) -->
+    <section class="dropzone" id="dropzone" tabindex="0" aria-label="Dropzone">
+      <div class="dz-inner">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 16V4m0 0-4 4m4-4 4 4" stroke="#5F6368" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#5F6368" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <h2>Pilih file atau seret & lepaskan di sini</h2>
+        <p class="hint">JPEG/PNG hingga 50MB • Maks 3 gambar • Eksklusif dengan link Figma</p>
+        <label class="btn-browse" for="fileInput">Browse File</label>
+        <input id="fileInput" type="file" class="visually-hidden" accept="image/*" multiple />
+      </div>
+    </section>
+
+    <form class="upload-form" id="uploadForm" novalidate>
+      <!-- Figma link (mutually exclusive with images) -->
+      <div id="linkRow">
+        <input id="linkInput" class="field-inputlink" type="url" placeholder="Masukan link Figma (1 link saja)" />
+        <button type="button" id="clearLink" class="link-clear" hidden>Hapus Link</button>
+      </div>
+
+      <!-- Post Settings -->
+      <section class="post-settings">
+        <header class="ps-head">
+          <div class="ps-title">
+            <span class="ps-icon" aria-hidden="true">⚙️</span>
+            <h3>Pengaturan Postingan</h3>
+          </div>
+          <p class="ps-sub">Atur komentar, visibilitas, dan jadwal terbit.</p>
+        </header>
+
+        <div class="ps-grid">
+          <!-- Comments toggle -->
+          <div class="ps-row">
+            <div class="ps-label">
+              <div class="ps-label-title">Komentar</div>
+              <div class="ps-label-sub">Izinkan orang berkomentar di postingan ini</div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="commentsOn" checked>
+              <span class="slider" aria-hidden="true"></span>
+              <span class="switch-text" data-on="Aktif" data-off="Nonaktif"></span>
+            </label>
+          </div>
+
+          <!-- Visibility -->
+          <div class="ps-row">
+            <div class="ps-label">
+              <div class="ps-label-title">Visibilitas</div>
+              <div class="ps-label-sub">Tentukan siapa yang bisa melihat</div>
+            </div>
+            <div class="ps-control">
+              <select id="visibility" class="field-select">
+                <option value="public" selected>Publik (muncul di galeri)</option>
+                <option value="private">Privat (hanya kamu di Akun)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Schedule -->
+          <div class="ps-row">
+            <div class="ps-label">
+              <div class="ps-label-title">Jadwalkan Publikasi</div>
+              <div class="ps-label-sub">Kosongkan bila ingin terbit sekarang</div>
+            </div>
+            <div class="ps-control">
+              <input id="publishAt" type="datetime-local" class="field-input">
+            </div>
+          </div>
+
+          <!-- Allow download (images only) -->
+          <div class="ps-row" id="dlRow" style="display:none;">
+            <div class="ps-label">
+              <div class="ps-label-title">Unduhan Gambar</div>
+              <div class="ps-label-sub">Izinkan orang mengunduh gambar yang kamu unggah</div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="allowDownload">
+              <span class="slider" aria-hidden="true"></span>
+              <span class="switch-text" data-on="Diizinkan" data-off="Ditolak"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <div class="select-wrap">
+        <select id="categorySelect" class="field-select" aria-label="Kategori" required>
+          <option value="" disabled selected>Kategori</option>
+          <option value="portofolio">Portofolio</option>
+          <option value="website">Website</option>
+          <option value="cv">CV</option>
+          <option value="desain">Desain</option>
+          <option value="logo">Logo</option>
+        </select>
+      </div>
+
+      <!-- PREVIEW (thumbnails) — appears ABOVE description -->
+      <div id="thumbs" class="thumbs"></div>
+
+      <textarea id="descInput" class="field-textarea" placeholder="Deskripsi..."></textarea>
+
+      <div class="actions">
+        <button type="button" class="btn-cancel" id="btnCancel">Cancel</button>
+        <button type="submit" class="btn-upload" id="btnUpload" disabled>Upload</button>
+      </div>
+    </form>
+  </main>
+
+  <div id="footer"></div>
+</body>
+</html>

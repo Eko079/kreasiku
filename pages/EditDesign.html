@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Edit Karya — Kreasiku</title>
+
+  <link rel="stylesheet" href="../css/global.css"/>
+  <link rel="stylesheet" href="../css/edit-design.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Sansita:wght@700&display=swap" rel="stylesheet">
+
+  <script>window.__PATH_PREFIX__='../';</script>
+  <script defer src="../js/main.js"></script>
+  <script defer src="../js/api.js"></script>
+  <script defer src="../js/edit-design.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="edit-wrap">
+    <header class="edit-head">
+      <div class="user-badge">
+        <div class="avatar" id="edAvatar">👤</div>
+        <div class="idtxt">
+          <div class="name" id="edName">—</div>
+          <div class="cls"  id="edClass">—</div>
+        </div>
+      </div>
+
+      <div class="head-actions">
+        <button id="btnDelete" class="icon danger" title="Hapus Karya" aria-label="Hapus Karya">🗑</button>
+      </div>
+    </header>
+
+    <!-- media -->
+    <section class="media" id="media"></section>
+
+    <!-- Post Settings -->
+    <section class="post-settings">
+      <header class="ps-head">
+        <div class="ps-title">
+          <span class="ps-icon" aria-hidden="true">⚙️</span>
+          <h3>Pengaturan Postingan</h3>
+        </div>
+        <p class="ps-sub">Atur komentar, visibilitas, dan jadwal terbit.</p>
+      </header>
+
+      <div class="ps-grid">
+        <!-- Comments toggle -->
+        <div class="ps-row">
+          <div class="ps-label">
+            <div class="ps-label-title">Komentar</div>
+            <div class="ps-label-sub">Izinkan orang berkomentar di postingan ini</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="commentsOn" checked>
+            <span class="slider" aria-hidden="true"></span>
+            <span class="switch-text" data-on="Aktif" data-off="Nonaktif"></span>
+          </label>
+        </div>
+
+        <!-- Visibility -->
+        <div class="ps-row">
+          <div class="ps-label">
+            <div class="ps-label-title">Visibilitas</div>
+            <div class="ps-label-sub">Tentukan siapa yang bisa melihat</div>
+          </div>
+          <div class="ps-control">
+            <select id="visibility" class="field-select">
+              <option value="public" selected>Publik (muncul di galeri)</option>
+              <option value="private">Privat (hanya kamu di Akun)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Schedule -->
+        <div class="ps-row">
+          <div class="ps-label">
+            <div class="ps-label-title">Jadwalkan Publikasi</div>
+            <div class="ps-label-sub">Kosongkan bila ingin terbit sekarang</div>
+          </div>
+          <div class="ps-control">
+            <input id="publishAt" type="datetime-local" class="field-input">
+          </div>
+        </div>
+
+        <!-- Allow download (images only) -->
+        <div class="ps-row" id="dlRow">
+          <div class="ps-label">
+            <div class="ps-label-title">Unduhan Gambar</div>
+            <div class="ps-label-sub">Izinkan orang mengunduh gambar yang kamu unggah</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="allowDownload">
+            <span class="slider" aria-hidden="true"></span>
+            <span class="switch-text" data-on="Diizinkan" data-off="Ditolak"></span>
+          </label>
+        </div>
+
+        <!-- Category -->
+        <div class="ps-row">
+          <div class="ps-label">
+            <div class="ps-label-title">Kategori</div>
+            <div class="ps-label-sub">Pilih kategori untuk karya ini</div>
+          </div>
+          <div class="ps-control">
+            <select id="categorySelect" class="field-select" required>
+              <option value="" disabled selected>Pilih kategori</option>
+              <option value="portofolio">Portofolio</option>
+              <option value="website">Website</option>
+              <option value="cv">CV</option>
+              <option value="desain">Desain</option>
+              <option value="logo">Logo</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- description editor -->
+    <section class="editor">
+      <label class="sr-only" for="edDesc">Deskripsi</label>
+      <textarea id="edDesc" placeholder="Tulis deskripsi karya..."></textarea>
+      <div class="actions">
+        <a class="btn-ghost" href="../pages/Account.html">Batal</a>
+        <button id="btnSave" class="btn-save">Simpan Perubahan</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Kreasiku: unggah & pamerkan portofolio, desain, logo, dan karya kreatif Anda.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Kreasiku</title>
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="css/global.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Sansita:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Script loader header/footer + utilities -->
+  <script defer src="js/main.js"></script>
+  <script defer src="js/api.js"></script>
+  
+</head>
+<body>
+  <!-- injected -->
+  <div id="header"></div>
+
+  <main class="content">
+    <section class="hero">
+      <h1>Tunjukan Karya Terbaik Anda Di sini</h1>
+      <p class="intro">
+        Di sini, kamu bisa mengunggah dan memamerkan portofolio serta desain terbaikmu. Jadikan karya kamu dikenal dan tunjukkan bakat kreatifmu ke dunia!
+      </p>
+      <p class="desc">
+        Platform ini memudahkanmu menampilkan karya dalam galeri rapi, lengkap dengan judul, deskripsi, dan tag agar mudah ditemukan. Kamu bisa mengatur kategori, memperbarui profil kreator, dan membagikan tautan portofolio ke media sosial.
+      </p>
+
+      <div class="buttons">
+        <!-- gunakan <a> saja, tanpa <button> di dalamnya -->
+        <a class="btn-gray" href="pages/gallery/Desain.html">Lihat Galeri</a>
+        <a class="btn-gradient" href="login.html">Masuk</a>
+      </div>
+    </section>
+
+    <!-- Info/animation section -->
+    <section class="feature-section">
+      <div class="feature-container">
+        <div class="feature-row top-row">
+          <span class="tag good" data-tooltip="Kepemilikan langsung oleh pengguna">✓ KEPEMILIKAN LANGSUNG</span>
+          <span class="tag good" data-tooltip="Setiap pengguna memiliki akses yang sama">✓ AKSES YANG SETARA</span>
+          <span class="tag good" data-tooltip="Fokus pada keamanan dan privasi pengguna">✓ BERORIENTASI PADA PRIVASI</span>
+          <span class="tag good" data-tooltip="Terhubung dengan berbagai sistem">✓ TERINTEGRASI</span>
+        </div>
+
+        <div class="center-labels">
+          <span class="tag label">Simple</span>
+          <span class="tag chain">Practical</span>
+        </div>
+
+        <div class="feature-row bottom-row">
+          <span class="tag bad" data-tooltip="Keterbatasan dalam kepemilikan dan hak akses">KEPEMILIKAN TERBATAS</span>
+          <span class="tag bad" data-tooltip="Perbedaan perlakuan antar pengguna">DISKRIMINASI</span>
+          <span class="tag bad" data-tooltip="Tidak ada perlindungan data pengguna">TIDAK ADA PRIVASI</span>
+          <span class="tag bad" data-tooltip="Data tersebar di banyak tempat tanpa kontrol">TERFRAGMENTASI</span>
+          <span class="tag bad" data-tooltip="Terkontrol oleh satu entitas utama">TERSENTRALISASI</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- injected -->
+  <div id="footer"></div>
+</body>
+</html>
