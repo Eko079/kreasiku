@@ -1,3 +1,0 @@
-<?php
-// backup copy of original before edits
-copy(__FILE__, __DIR__ . '/create.php.bak');
