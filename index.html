@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Kreasiku: unggah & pamerkan portofolio, desain, logo, dan karya kreatif Anda.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Kreasiku</title>
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="css/global.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Sansita:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Script loader header/footer + utilities -->
+  <script defer src="JS/main.js"></script>
+  <script defer src="JS/api.js"></script>
+  
+</head>
+<body>
+  <!-- injected -->
+  <div id="header"></div>
+
+  <main class="content">
+    <section class="hero">
+      <h1>Tunjukan Karya Terbaik Anda Di sini</h1>
+      <p class="intro">
+        Di sini, kamu bisa mengunggah dan memamerkan portofolio serta desain terbaikmu. Jadikan karya kamu dikenal dan tunjukkan bakat kreatifmu ke dunia!
+      </p>
+      <p class="desc">
+        Platform ini memudahkanmu menampilkan karya dalam galeri rapi, lengkap dengan judul, deskripsi, dan tag agar mudah ditemukan. Kamu bisa mengatur kategori, memperbarui profil kreator, dan membagikan tautan portofolio ke media sosial.
+      </p>
+
+      <div class="buttons">
+        <!-- gunakan <a> saja, tanpa <button> di dalamnya -->
+        <a class="btn-gray" href="pages/gallery/Desain.html">Lihat Galeri</a>
+        <a class="btn-gradient auth-link" data-hide-when-auth="true" data-login-href="login.html" data-auth-target="pages/account/Account.html" href="login.html">Masuk</a>
+      </div>
+    </section>
+
+    <!-- Info/animation section -->
+    <section class="feature-section">
+      <div class="feature-container">
+        <div class="feature-row top-row">
+          <span class="tag good" data-info="Portofolio, Website, CV, Desain, dan Logo ditampilkan di halaman kategori yang konsisten sehingga pengunjung mudah menjelajah.">✓ Galeri multi kategori</span>
+          <span class="tag good" data-info="Halaman Upload menerima gambar, PDF, maupun embed Figma lalu langsung mem-push konten ke galeri pilihan Anda.">✓ Upload instan</span>
+          <span class="tag good" data-info="Setiap kreator punya area akun untuk mengelola profil, mengganti avatar, serta memantau karya tersimpan.">✓ Profil kreator</span>
+          <span class="tag good" data-info="Fitur simpan & suka membuat karya favorit masuk ke halaman Saved sehingga mudah ditemukan kembali.">✓ Simpan & favorit</span>
+        </div>
+
+        <div class="center-labels">
+          <span class="tag label">Simple</span>
+          <span class="tag chain">Practical</span>
+        </div>
+
+        <div class="feature-row bottom-row">
+          <span class="tag info" data-info="Halaman detail menampilkan gambar penuh, deskripsi, dan tombol unduh sehingga karya siap menerima feedback.">Detail interaktif</span>
+          <span class="tag info" data-info="Search.html menyediakan filter kategori, urutan, dan status unduhan untuk menemukan karya paling relevan.">Pencarian presisi</span>
+          <span class="tag info" data-info="Setiap kartu galeri menampilkan tanggal publikasi dan badge kategori agar informasi kontekstual tetap jelas.">Kartu informatif</span>
+          <span class="tag info" data-info="Karya yang disukai pengguna akan muncul pada carousel halaman depan untuk memperluas jangkauan.">Sorotan komunitas</span>
+          <span class="tag info" data-info="Navigasi header dan footer dimuat dinamis sehingga struktur selalu konsisten di seluruh halaman.">Layout konsisten</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- injected -->
+  <div id="footer"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tooltip = document.createElement('div');
+      tooltip.className = 'feature-tooltip';
+      document.body.appendChild(tooltip);
+      let tooltipVisible = false;
+      let tooltipTarget = null;
+
+      document.querySelectorAll('.feature-row').forEach(row => {
+        if (row.dataset.marqueeReady === '1') return;
+        const tags = Array.from(row.children).filter(el => el.classList?.contains('tag'));
+        const track = document.createElement('div');
+        track.className = 'feature-track';
+        tags.forEach(tag => track.appendChild(tag));
+        tags.forEach(tag => track.appendChild(tag.cloneNode(true)));
+        row.appendChild(track);
+        row.dataset.marqueeReady = '1';
+        bindTooltipHandlers(track);
+        startMarquee(row, track);
+      });
+
+      function bindTooltipHandlers(track) {
+        track.querySelectorAll('.tag').forEach(tag => {
+          const text = tag.dataset.info || tag.textContent;
+          tag.setAttribute('tabindex', '0');
+          const show = () => showTooltip(tag, text);
+          const hide = () => hideTooltip(tag);
+          tag.addEventListener('mouseenter', show);
+          tag.addEventListener('focus', show);
+          tag.addEventListener('mouseleave', hide);
+          tag.addEventListener('blur', hide);
+        });
+      }
+
+      function showTooltip(tag, text) {
+        tooltipTarget = tag;
+        tooltip.textContent = text;
+        tooltip.classList.add('visible');
+        tooltipVisible = true;
+        positionTooltip(true);
+      }
+
+      function hideTooltip(tag) {
+        if (tooltipTarget !== tag) return;
+        tooltipVisible = false;
+        tooltipTarget = null;
+        tooltip.classList.remove('visible');
+      }
+
+      function positionTooltip(force = false) {
+        if (!tooltipVisible || !tooltipTarget) return;
+        const compute = () => {
+          if (!tooltipVisible || !tooltipTarget) return;
+          const rect = tooltipTarget.getBoundingClientRect();
+          const ttRect = tooltip.getBoundingClientRect();
+          const viewportWidth = document.documentElement.clientWidth;
+          const pageX = window.scrollX || window.pageXOffset;
+          const pageY = window.scrollY || window.pageYOffset;
+          const idealLeft = rect.left + rect.width / 2 - ttRect.width / 2 + pageX;
+          const left = Math.min(
+            viewportWidth - ttRect.width - 12 + pageX,
+            Math.max(12 + pageX, idealLeft)
+          );
+          const top = rect.top + pageY - ttRect.height - 14;
+          tooltip.style.left = `${left}px`;
+          tooltip.style.top = `${Math.max(pageY + 12, top)}px`;
+          const arrowPos = rect.left + rect.width / 2 - left - pageX;
+          tooltip.style.setProperty('--arrow-left', `${Math.max(10, Math.min(ttRect.width - 10, arrowPos))}px`);
+        };
+        if (force) {
+          tooltip.style.left = '0px';
+          tooltip.style.top = '0px';
+          tooltip.offsetWidth; // force layout
+          compute();
+        } else {
+          requestAnimationFrame(compute);
+        }
+      }
+
+      window.addEventListener('scroll', () => positionTooltip(), { passive: true });
+      window.addEventListener('resize', () => positionTooltip());
+
+      function startMarquee(row, track) {
+        const dir = row.classList.contains('top-row') ? 1 : -1;
+        const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || getComputedStyle(row).getPropertyValue('--feature-gap')) || 15;
+        const edgeLeft = parseFloat(row.dataset.edgeLeft || row.dataset.edge || '');
+        const edgeRight = parseFloat(row.dataset.edgeRight || row.dataset.edge || '');
+        const boundaryStart = parseFloat(row.dataset.spawnStart || row.dataset.boundaryStart || '');
+        const boundaryEnd = parseFloat(row.dataset.spawnEnd || row.dataset.boundaryEnd || '');
+        if (!Number.isNaN(edgeLeft)) row.style.setProperty('--feature-edge-left', edgeLeft + 'px');
+        if (!Number.isNaN(edgeRight)) row.style.setProperty('--feature-edge-right', edgeRight + 'px');
+        // Gunakan data-edge-left/right (atau data-edge) untuk mengatur panjang fade kiri/kanan.
+        // Gunakan data-spawn-start/end untuk menentukan titik muncul/hilangnya konten (padding container).
+        if (!Number.isNaN(boundaryStart)) row.style.setProperty('--feature-boundary-left', boundaryStart + 'px');
+        if (!Number.isNaN(boundaryEnd)) row.style.setProperty('--feature-boundary-right', boundaryEnd + 'px');
+        const customSpeed = parseFloat(row.dataset.speed || '');
+        const speed = (Number.isNaN(customSpeed) ? 0.35 : customSpeed) * dir; // px per frame
+        let offset = 0;
+        let paused = false;
+
+        row.addEventListener('mouseenter', () => { paused = true; });
+        row.addEventListener('mouseleave', () => { paused = false; });
+
+        function tick() {
+          if (!paused) {
+            offset += speed;
+            if (dir < 0) {
+              const first = track.firstElementChild;
+              if (first) {
+                const w = first.offsetWidth + gap;
+                if (-offset >= w) {
+                  offset += w;
+                  track.appendChild(first);
+                }
+              }
+            } else {
+              const last = track.lastElementChild;
+              if (last) {
+                const w = last.offsetWidth + gap;
+                if (offset >= w) {
+                  offset -= w;
+                  track.insertBefore(last, track.firstElementChild);
+                }
+              }
+            }
+            track.style.transform = `translateX(${offset}px)`;
+            positionTooltip(true);
+          }
+          requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+    });
+  </script>
+</body>
+</html>

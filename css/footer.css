@@ -1,0 +1,35 @@
+.main-footer {
+  background: #E5E5EA;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 80px;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.footer-left {
+  width: 40%;
+}
+
+.footer-right {
+  display: flex;
+  gap: 60px;
+  text-decoration: none;
+}
+
+.footer-logo {
+  text-decoration: none;
+  display: flex;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.logo-kf {
+  color: #000;
+}
+
+.logo-textf {
+  font-family: "Sansita", sans-serif;
+  color: #000;
+}

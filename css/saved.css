@@ -1,0 +1,98 @@
+/* header area (sort) */
+.saved-head{
+  display:flex; justify-content:flex-start; margin:6px 0 10px;
+}
+.saved-sort small{ display:block; color:#7a7a7a; margin-bottom:4px; }
+.saved-sort .select-wrap{
+  max-width:220px;
+}
+.saved-sort .custom-select-display{
+  padding:10px 42px 10px 14px;
+  font-size:13px;
+}
+
+/* square grid like the mock */
+:root{ --saved-ratio: 3 / 2; }
+
+.saved-grid{
+  display:grid; gap:24px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.saved-card{
+  background:#fff;
+  border:1px solid #ECECF1;
+  border-radius:18px;
+  box-shadow:0 8px 24px rgba(42,39,105,.08);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.saved-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 16px 32px rgba(42,39,105,.18);
+}
+.saved-card .preview{
+  position:relative;
+  display:block;
+  padding-top: calc(100% / (var(--saved-ratio)));
+  background:#F1EFFB;
+  overflow:hidden;
+}
+.saved-card img,
+.saved-card iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border:0;
+  border-radius:0;
+  transition:transform .35s ease;
+}
+.saved-card:hover img,
+.saved-card:hover iframe{
+  transform:scale(1.04);
+}
+.saved-card iframe{ pointer-events:none; }
+.saved-card .preview-badge{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:rgba(0,0,0,.65);
+  color:#fff;
+  font-size:11px;
+  letter-spacing:.02em;
+  padding:4px 8px;
+  border-radius:999px;
+}
+.saved-info{
+  padding:16px 18px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.saved-title{
+  font-weight:700;
+  font-size:16px;
+  color:#1f1f1f;
+  text-decoration:none;
+}
+.saved-title:hover{ color:#4a3df0; }
+.saved-meta{
+  display:flex;
+  justify-content:space-between;
+  font-size:12px;
+  color:#848199;
+}
+
+/* empty state */
+.saved-empty{
+  text-align:center; color:#7a7a7a; font-size:14px; padding:36px 0;
+}
+
+/* responsive */
+@media (max-width: 760px){
+  .saved-grid{ grid-template-columns: 1fr; }
+}
